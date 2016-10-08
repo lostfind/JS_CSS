@@ -1,0 +1,86 @@
+#zukei {
+    position: relative;
+    background: red;
+    height: 100px;
+    width: 180px;
+    left: 20px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#zukei::after {
+    content: "";
+    left: 180px;
+    position: absolute;
+    border-top: 50px solid transparent;
+    border-left: 20px solid red;
+    border-bottom: 50px solid transparent;
+}
+
+#zukei2 {
+    position: relative;
+    background: darkblue;
+    height: 100px;
+    width: 180px;
+    left: 40px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#zukei2::after {
+    content: "";
+    left: -20px;
+    position: absolute;
+    border-top: 50px solid transparent;
+    border-right: 20px solid darkblue;
+    border-bottom: 50px solid transparent;
+}
+
+#zukei3 {
+    position: relative;
+    background: royalblue;
+    height: 100px;
+    width: 200px;
+    left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+#zukei4 {
+    position: relative;
+    background: aquamarine;
+    height: 100px;
+    width: 200px;
+    left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#zukei5 {
+    position: relative;
+    background: chocolate;
+    height: 100px;
+    width: 200px;
+    left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#zukei5::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-top: 10px solid darkgoldenrod;
+    border-right: 10px solid transparent;
+}
+#zukei5::before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-bottom: 10px solid white;
+    border-left: 10px solid transparent;
+}
