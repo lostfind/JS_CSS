@@ -1,0 +1,22 @@
+body {
+  background: #1d1f20;
+}
+#stack {
+  width: 170px;
+  height: 340px;
+  border: solid 1px #FFFF7D;
+}
+
+.brick {
+  width: 15px;
+  height: 15px;
+  border: solid 1px #1d1f20;
+  background: #1d1f20;
+  float: left;
+}
+.brick.on {
+  background: black;
+}
+.brick.now {
+  background: #FF7C80;
+}

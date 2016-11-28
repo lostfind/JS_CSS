@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OneYear Calendar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/calendar.js"></script>
+    
+    <!-- <script src="./js/vendor/jquery-2.1.3.js"></script> -->
+    <script src="./js/vendor/jquery-3.1.1.js"></script>
+    <script src="./js/vendor/jspdf.min.js"></script>
+    <script src="./js/vendor/jspdf.plugin.autotable.js"></script>
+    <!-- <script src="./js/vendor/html2canvas.js"></script> -->
+    <!-- <script src="./js/vendor/html2pdf.js"></script> -->
+</head>
+
+<body>
+    <!-- CONTENT AREA START -->
+    <div class="contentArea">
+
+        <!-- YEAR SELECT AREA START -->
+        <div class="yearArea">
+            <div class="col-10">
+                <input type="button" class="btn" value="<" onClick="changeYear(-1)">
+            </div>
+            <div class="col-80">
+                <select class="selectBox" id="selectYear" onChange="changeCalendar()"></select>
+            </div>
+            <div class="col-10">
+                <input type="button" class="btn" value=">" onClick="changeYear(1)">
+            </div>
+        </div>
+        <!-- YEAR SELECT AREA END -->
+
+        <!-- Calendar AREA START -->
+        <div id="calendarArea"></div>
+        <!-- Calendar AREA END -->
+
+    </div>
+    <!-- CONTENT AREA END -->
+
+    <!-- TEST Button START -->
+    <div class="clearfix">
+        <input type="button" value="Show List" onClick="showList()">
+        <input type="button" value="This Year" onClick="moveCurrYear()">
+        <!-- <input type="button" value="Download(PDF)" onClick="pdfDown()"> -->
+        <input type="button" value="table(PDF)" onClick="tableDown()">
+    </div>
+    <!-- TEST Button END -->
+
+</body>
+</html>
