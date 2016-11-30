@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shift Format</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="./css/shiftTable.css">
+</head>
+
+<body>
+
+    <div class="wrapperArea">
+        <div class="selectArea">
+            <lable>Shift Pattern : </lable>
+            <select id="shiftPattern">
+                <option value="day">Day Shift</option>
+                <option value="two">2 shift</option>
+                <option value="three">3 Shift</option>
+            </select>
+        </div>
+
+        <div class="tableArea clearfix">
+            <!-- colButton START -->
+            <div class="colButtonArea">
+                <ul id="colButton">
+                    <li><a href="#" onclick="addCol(this)">+</a> <a href="#" onclick="removeCol(this)">-</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- colButton END -->
+
+            <!-- rowButton START -->
+            <div class="rowButtonArea">
+                <ul id="rowButton">
+                    <li><a href="#" onclick="addRow(this)">+</a> <a href="#" onclick="removeRow(this)">-</a></li>
+                </ul>
+            </div>
+            <!-- rowButton END -->
+
+            <!-- shfit Table START -->
+            <div class="shiftTableArea">
+                <table id="shiftTable">
+                    <thead>
+                        <tr>
+                            <td class="teamHeader" rowspan="2">Team Name</td>
+                            <td id="daysHeader" colspan="5">Number of Days</td>
+                        </tr>
+                        <tr>
+                            <td class="shiftDay">1</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="teamName">Team A</td>
+                            <td class="shiftType" id="1-1" onclick="clickShift(id)"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- shfit Table END -->
+        </div>
+
+        <!-- func button START -->
+        <div class="buttonArea clearfix">
+            <input class="btn" id="save" type="button" value="Save" onclick="save()"></input>
+        </div>
+        <!-- func button END -->
+
+    </div>
+
+</body>
+
+<script src="./js/vendor/jquery-3.1.1.js"></script>
+<script src="./js/shiftFormat.js"></script>
+
+</html>

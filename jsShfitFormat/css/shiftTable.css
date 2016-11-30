@@ -1,0 +1,109 @@
+/* 공통 */
+* {
+    font-family: Meiryo, Calibri, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* UL LI */
+ul {
+    list-style: none;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    font-size: 10pt;
+    position: relative;
+    text-align: center;
+}
+
+#colButton li {
+    float: left;
+    width: 30px;
+    padding-left: 1px;
+}
+
+#rowButton li {
+    height : 30px;
+    padding-top: 1px;
+}
+
+/* TABLE */
+table {
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
+}
+
+table, td
+ {
+    border: 1px solid;
+    padding: 0px;
+}
+
+thead {
+    font-weight: bold;
+}
+
+td {
+    width: 30px;
+    max-width: 30px;
+    min-width: 30px;
+    height: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    word-break: break-all;
+}
+
+/* td class */
+.teamHeader, .teamName {
+    width: 130px;
+    max-width: 130px;
+    min-width: 130px;
+}
+
+.shiftType {
+    cursor: pointer;
+}
+
+/* td id */
+#daysHeader {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* DIV */
+.clearfix {
+    clear: both;
+}
+
+.wrapperArea {
+    position: relative;
+    min-width: 960px;
+}
+
+.colButtonArea {
+    margin-top: 16px;
+    margin-left: 161px;
+}
+
+.rowButtonArea {
+    float: left;
+    width: 30px;
+    margin-top: 62px;
+}
+
+.buttonArea {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+/* Button */
+.btn {
+    width: 100px;
+}
