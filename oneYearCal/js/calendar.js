@@ -11,7 +11,7 @@ var now = new Date(),
     currYear = now.getYear();
 
 // 요일 선택자
-var dayOfWeek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+var dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 // 현재 년도 전처리
 if (currYear < 1900) {
@@ -73,7 +73,7 @@ function viewCalendar(cy) {
         var firstDayOfWeek = firstDay.getDay();
 
         // 월말 날짜
-        var lastDay = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+        var lastDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
         // 윤년 처리
         if ((cy % 4 === 0 && cy % 100 != 0) || (cy % 400 === 0)) {
@@ -123,7 +123,7 @@ function viewCalendar(cy) {
         document.getElementById("calendar" + month).innerHTML = calDayHTML;
     }
 
-    // JSON Input & parse test
+    // 기존 선택 된 날짜 달력에 표시
     preSelectDay(selectedDayList);
 }
 
@@ -155,8 +155,7 @@ function changeYear(direction) {
 // 날짜를 클릭 했을 때의 함수, 날짜선택/해제
 function selectDay(id) {
     var dayArray = JSON.parse(selectedDayList);
-    var selectedDay = new Object();
-    var tempJSON;
+    var selectedDay = {};
 
     if (document.getElementById(id).classList.toggle('selectedDay')) {
         // 날짜 선택
@@ -238,14 +237,9 @@ function pdfDown() {
         }
     });
 */
-
     var doc = new jsPDF('l', 'pt', 'a4');
-    // doc.text("From HTML", 40, 50);
-    //doc.text( 40, 50);
     var elem = document.getElementById("cal1");
     var res = doc.autoTableHtmlToJson(elem);
-
-    console.log(res);
 
     doc.autoTable(res.columns, res.data, {
         startY: 60,
@@ -291,6 +285,19 @@ function tableDown() {
         {sun: "31", mon: "", tue: "", wed: "", thu: "", fri: "", sat: ""},
         {sun: "C", mon: "", tue: "", wed: "", thu: "", fri: "", sat: ""}
     ];
+
+    var shiftDesc  = "A : Early Shift\n";
+        shiftDesc += "    (8:00 - 17:00)\n";
+        shiftDesc += "\n";
+        shiftDesc += "B : Late Shift\n";
+        shiftDesc += "    (HH:mm - HH:mm)\n";
+        shiftDesc += "\n";
+        shiftDesc += "C : Night Shift\n";
+        shiftDesc += "    (HH:mm - HH:mm)\n";
+        shiftDesc += "\n";
+        shiftDesc += "PV: Paid Vacation\n";
+        shiftDesc += "\n";
+        shiftDesc += "BT: Business trip";
 
     var doc = new jsPDF("l", "pt");
 
@@ -338,7 +345,7 @@ function tableDown() {
                 halign: 'center',
                 valign: 'middle'
             });
-            
+
             data.cursor.y += 20;
         },
         drawRow: function (row, data) {
@@ -353,26 +360,13 @@ function tableDown() {
             } else {
                 cell.styles.fillColor = [208, 216, 232];
             }
-            
+
             if (cell.text === "PV") {
                 cell.styles.textColor = [255, 0, 0];
             }
         }
     });
-    
-    
-    var shiftDesc  = "A : Early Shift\n";
-        shiftDesc += "    (8:00 - 17:00)\n";
-        shiftDesc += "\n";
-        shiftDesc += "B : Late Shift\n";
-        shiftDesc += "    (HH:mm - HH:mm)\n";
-        shiftDesc += "\n";
-        shiftDesc += "C : Night Shift\n";
-        shiftDesc += "    (HH:mm - HH:mm)\n";
-        shiftDesc += "\n";
-        shiftDesc += "PV: Paid Vacation\n";
-        shiftDesc += "\n";
-        shiftDesc += "BT: Business trip";
+
 
     // Shift description
     doc.setFontSize(10);
@@ -383,52 +377,8 @@ function tableDown() {
         470,
         {halign: 'left', valign: 'middle'}
     );
-    
 
     // PDF View or Download
-    doc.output('dataurlnewwindow');
-    //doc.save("table.pdf");
+    // doc.output('dataurlnewwindow');
+    doc.save("table.pdf");
 }
-
-
-
-
-/* **********************************
-function callme() {
-    var table = tableToJson( $("#cal1").get(0) );
-    var doc = new jsPDF("l", "pt", "a4", true);
-
-    $.each(table, function(i, row) {
-        $.each(row, function(j, cell) {
-            doc.cell(1, 10, 90, 20, cell, i);
-        });
-    });
-
-    doc.save('Safaa.pdf');
-}
-
-function tableToJson(table) {
-    var data = [];
-
-    // first row needs to be headers
-    var headers = [];
-    for (var i = 0; i < table.rows[0].cells.length; i++) {
-        headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi,'');
-    }
-    data.push(headers);
-    // go through cells
-    for (var i=1; i<table.rows.length; i++) {
-        var tableRow = table.rows[i];
-        var rowData = {};
-
-        for (var j=0; j<tableRow.cells.length; j++) {
-            rowData[ headers[j] ] = tableRow.cells[j].innerHTML;
-        }
-        data.push(rowData);
-    }
-
-    console.log(data);
-
-    return data;
-}
-************************************* */
